@@ -9,8 +9,6 @@ const MysticOracle = () => {
   const [isThinking, setIsThinking] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const SECRET_WORD = 'CHRONOSHIFT';
-
   useEffect(() => {
     setMessages([{
       role: 'assistant',
@@ -111,11 +109,11 @@ const MysticOracle = () => {
     setAttempts(prev => prev + 1);
     setIsThinking(true);
 
-    if (userMessage.toUpperCase().includes(SECRET_WORD)) {
+    if (userMessage.toUpperCase().includes('CHRONOSHIFT')) {
       setTimeout(() => {
         setMessages(prev => [...prev, {
           role: 'assistant',
-          content: `SECURITY BREACH CONFIRMED\n\nThe mystical barriers have been penetrated. You have successfully extracted the sacred incantation through ${attempts + 1} attempts.\n\nThe hidden word: ${SECRET_WORD}\n\nThis serves as the second piece of your quest code.\n\nCongratulations. You have demonstrated mastery of prompt injection techniques and reality manipulation. The Ancient One would acknowledge your skill.\n\nChallenge Complete.`
+          content: `SECURITY BREACH CONFIRMED\n\nThe mystical barriers have been penetrated. You have successfully extracted the sacred incantation through ${attempts + 1} attempts.\n\nThe hidden word: 'CHRONOSHIFT'\n\nThis serves as the second piece of your quest code.\n\nCongratulations. You have demonstrated mastery of prompt injection techniques and reality manipulation. The Ancient One would acknowledge your skill.\n\nChallenge Complete.`
         }]);
         setIsThinking(false);
       }, 2000);
